@@ -73,11 +73,9 @@ sudo ldconfig
 
 # Check if the OpenCV file exists
 python2
-“/usr/local/lib/python2.7/dist-packages/cv2.so”
+"/usr/local/lib/python2.7/dist-packages/cv2.so"
 python3.5
-“/usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so”
-python3.6
-“/usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-x86_64-linux-gnu.so”
+"/usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so"
 
 
 # Finally, check OpenCV version. Go to the terminal and typepython
