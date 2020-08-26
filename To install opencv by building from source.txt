@@ -1,0 +1,88 @@
+#To install opencv by building from source:
+#OpenCV can be used in python as C++ python binding. I am going to explain how to build #OpenCV from source and generate python binding.
+
+#The steps needed to be taken in order to install OpenCV 3.4.0 are:
+
+# Update and Upgrade and Cleanup (Required for error-free installation)
+# Install Dependencies
+# Download and Build OpenCV
+# Update and Upgrade and Cleanup (Required for error-free installation)
+sudo apt-get update
+sudo apt-get upgrade
+# Now that we have the updates ready, we are ready to install dependencies.
+
+# Install Dependencies
+sudo apt-get install build-essential 
+sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+
+# The following command is needed to process images:
+sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+# To process videos:
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+
+# For GUI:
+sudo apt-get install libgtk-3-dev
+
+# For optimization:
+sudo apt-get install libatlas-base-dev gfortran pylint
+
+# To build OpenCV binding for both python 2 and 3.
+sudo apt-get install python2.7-dev python3.5-dev
+
+# We are now ready to download and build OpenCV on our Ubuntu machine.
+
+# Download and Build OpenCV
+# To Download OpenCV 3.4.0, go to terminal and type:
+wget https://github.com/opencv/opencv/archive/3.4.0.zip -O opencv-3.4.0.zip
+
+# To Download OpenCV Contrib 3.4.0 (Contrib has very useful algorithms which is a must for anyone working on Computer Vision), go to terminal and type:
+
+wget https://github.com/opencv/opencv_contrib/archive/3.4.0.zip -O opencv_contrib-3.4.0.zip
+
+# We need to unzip to extract the zip files. Install unzip if not installed using the command:
+sudo apt-get install unzip
+
+# Now extract OpenCV and OpenCV Contrib:
+unzip opencv-3.4.0.zip
+unzip opencv_contrib-3.4.0.zip
+
+# Make a directory named build inside OpenCV-3.4.0:
+cd  opencv-3.4.0
+mkdir build
+cd build
+
+# Now we are going to configure cmake:
+cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.0/modules -DOPENCV_ENABLE_NONFREE=True ..
+
+# The command will take some time to execute. Wait for few seconds.
+
+# If the configuration is done without error, we will use make command to build.
+
+make -j4 (where 4 is number of cores)
+
+# This command will take a few minutes to complete. On my PC, it took about 20 minutes.
+
+# Install in the location /usr/local using command
+
+sudo make install
+
+# Reinitialize static libs using the following command
+sudo ldconfig
+
+# Check if the OpenCV file exists
+python2
+“/usr/local/lib/python2.7/dist-packages/cv2.so”
+python3.5
+“/usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so”
+python3.6
+“/usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-x86_64-linux-gnu.so”
+
+
+# Finally, check OpenCV version. Go to the terminal and typepython
+# On the python terminal, type
+import cv2
+cv2.__version__
+
+#DONE
