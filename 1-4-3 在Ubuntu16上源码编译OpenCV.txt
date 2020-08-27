@@ -54,7 +54,7 @@ mkdir build
 cd build
 
 # Now we are going to configure cmake:
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr/local -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.0/modules -DOPENCV_ENABLE_NONFREE=True ..
+cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.0/modules -D OPENCV_ENABLE_NONFREE=True ..
 
 # The command will take some time to execute. Wait for few seconds.
 
