@@ -71,6 +71,17 @@ sudo make install
 # Reinitialize static libs using the following command
 sudo ldconfig
 
+# If you’ve reached this step without an error, OpenCV should now be installed in 
+/usr/local/lib/python2.7/site-packages
+
+# find cv2.so
+find / -name "cv2.so"
+
+# You will see, our cv  virtual environment is located in our home directory — thus to use OpenCV within our cv  environment, we first need to sym-link OpenCV into the site-packages  directory of the cv  virtual environment:
+
+cd ~/.local/cv/lib/python2.7/site-packages/
+ln -s /usr/local/lib/python2.7/site-packages/cv2.so cv2.so
+
 # Check if the OpenCV file exists
 python2
 "/usr/local/lib/python2.7/dist-packages/cv2.so"
