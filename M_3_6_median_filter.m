@@ -6,9 +6,11 @@
 
 % Lecture 3-6 Median Filter
 
-I = rgb2gray(imread('lenna.png'));
+I = rgb2gray(imread('lenna.png')); 
+imshow(I);
 J = imnoise(I,'salt & pepper',0.02);
-imshow(J)
+imshow(J);
+
 im = imfilter(J, ones(3,3)/9); imshow(im);
 im1 = imfilter(J, ones(5,5)/25); imshow(im1);
 I2 = medfilt2(J ); imshow(I2);
