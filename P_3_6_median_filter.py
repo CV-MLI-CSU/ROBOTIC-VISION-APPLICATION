@@ -11,7 +11,7 @@ import cv2
 import numpy as np
 
 # Load image a RGB image and convert it to GRAYONE
-img = cv2.imread('../Lenna.png', cv2.IMREAD_GRAYSCALE)
+img = cv2.imread('images/lenna.png', cv2.IMREAD_GRAYSCALE)
 
 # add noise (salt & paper)
 # Generate Gaussian noise
@@ -30,4 +30,4 @@ compare = np.concatenate((compare1,compare2), axis=0) #side by side comparison
 
 cv2.imshow('img', compare) # Display img with median filter
 cv2.waitKey(0)        # Wait for a key press to
-cv2.destroyAllWindows # close the img window.
+cv2.destroyAllWindows # close the img window
