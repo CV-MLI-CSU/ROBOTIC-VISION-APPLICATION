@@ -17,7 +17,7 @@ rightImages = imageDatastore('images/camera_calib/right/');
   detectCheckerboardPoints(leftImages.Files,rightImages.Files);
 
 % Specify the world coordinates of the checkerboard keypoints. Square size is in millimeters.
-squareSize = 108;
+squareSize = 108;% mm
 worldPoints = generateCheckerboardPoints(boardSize,squareSize);
 
 % Calibrate the stereo camera system. Both cameras have the same resolution.

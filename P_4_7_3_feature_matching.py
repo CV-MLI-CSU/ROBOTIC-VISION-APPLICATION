@@ -81,7 +81,7 @@ cv2.destroyAllWindows # close the img window
 
 
 ## FEATURE Matching
-# find the keypoints and descriptors with SIFT
+# find the keypoints and descriptors with ORB
 orb = cv2.ORB_create(nfeatures=2000)
 kp1, des1 = orb.detectAndCompute(img1, None)
 kp2, des2 = orb.detectAndCompute(img2, None)
