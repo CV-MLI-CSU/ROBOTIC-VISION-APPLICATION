@@ -5,8 +5,8 @@
 % Copyright © 2020 SR2V Ltd. All rights reserved 
 
 % Lecture 3-5 template matching 
-im = imread('dinner.jpg');
-im2 = imread('danielface.jpg');
+im = imread('images/dinner.jpg');
+im2 = imread('images/danielface.jpg');
 imshowpair(im, im2, 'montage');
 [I_SSD,I_NCC,Idata]=template_matching(im2,im);  
 imshowpair(I_SSD, I_NCC, 'montage');

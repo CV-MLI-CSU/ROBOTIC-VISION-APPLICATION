@@ -8,6 +8,7 @@
 
 % Create a set of calibration images.
 path = 'images/camera_calib/';
+path = '../../Downloads/ProjectCode/Cab/';
 images = imageDatastore(path);
 imageFileNames = images.Files;
 

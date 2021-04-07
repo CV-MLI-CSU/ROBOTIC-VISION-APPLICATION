@@ -11,15 +11,18 @@ import numpy as np
 import cv2
 import glob
 
-# termination criteria
-criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
+itera = 30
+sq = 30  # 30 mm size of square
+
+# Set termination condition: 30 iterations or change < 0.001
+criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, itera, 0.001)
 
 # prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
 # Defining the dimensions of checkerboard
 a = 11
 b = 8
 objp = np.zeros((b*a,3), np.float32)
-objp[:,:2] = np.mgrid[0:a,0:b].T.reshape(-1,2)
+objp[:,:2] = np.mgrid[0:a,0:b].T.reshape(-1,2)*sq
 
 # Arrays to store object points and image points from all the images.
 objpoints = [] # 3d point in real world space

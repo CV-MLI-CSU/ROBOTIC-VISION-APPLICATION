@@ -16,19 +16,20 @@ import pickle
 # Defining the dimensions of checkerboard
 a = 7
 b = 6
-square_size = 108 #mm
+itera = 30
+sq = 108  # 30 mm size of square
 
 class StereoCalibration(object):
     def __init__(self, filepath):
-        # termination criteria
+        # Set termination condition: 30 iterations or change < 0.001
         self.criteria = (cv2.TERM_CRITERIA_EPS +
-                         cv2.TERM_CRITERIA_MAX_ITER, square_size, 0.1)
+                         cv2.TERM_CRITERIA_MAX_ITER, itera, 0.1)
         #self.criteria_cal = (cv2.TERM_CRITERIA_EPS +
         #                     cv2.TERM_CRITERIA_MAX_ITER, 100, 1e-5)
 
         # prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
         self.objp = np.zeros((b*a, 3), np.float32)
-        self.objp[:, :2] = np.mgrid[0:a, 0:b].T.reshape(-1, 2)
+        self.objp[:, :2] = np.mgrid[0:a, 0:b].T.reshape(-1, 2)*sq
 
         # Arrays to store object points and image points from all the images.
         self.objpoints = []  # 3d point in real world space
